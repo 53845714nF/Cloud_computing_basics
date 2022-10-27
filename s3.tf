@@ -11,22 +11,22 @@ resource "aws_s3_bucket_acl" "todo_bucket_acl" {
 
 # Bild hochladen
 resource "aws_s3_object" "img_upload" {
-  bucket = "todo-s3-img"
-  key = "Bild Logo"
-  source = "content/index.png"
-  acl = "public-read"
+  bucket       = "todo-s3-img"
+  key          = "Bild Logo"
+  source       = "content/index.png"
+  acl          = "public-read"
   content_type = "image/png"
-  depends_on = [aws_s3_bucket.todo_bucket]
+  depends_on   = [aws_s3_bucket.todo_bucket]
 }
 
 # Html hochladen 
 resource "aws_s3_object" "html_upload" {
-  bucket = "todo-s3-img"
-  key = "index.html"
-  source = "content/index.html"
-  acl = "public-read"
+  bucket       = "todo-s3-img"
+  key          = "index.html"
+  source       = "content/index.html"
+  acl          = "public-read"
   content_type = "text/html"
-  depends_on = [aws_s3_bucket.todo_bucket]
+  depends_on   = [aws_s3_bucket.todo_bucket]
 }
 
 locals {
@@ -44,7 +44,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   comment             = "Some comment"
   default_root_object = "index.html"
 
-  
+
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
