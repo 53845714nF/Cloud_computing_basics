@@ -15,6 +15,7 @@ resource "aws_s3_object" "img_upload" {
   key = "Bild Logo"
   source = "content/index.png"
   acl = "public-read"
+  content_type = "image/png"
   depends_on = [aws_s3_bucket.todo_bucket]
 }
 
@@ -24,6 +25,7 @@ resource "aws_s3_object" "html_upload" {
   key = "index.html"
   source = "content/index.html"
   acl = "public-read"
+  content_type = "text/html"
   depends_on = [aws_s3_bucket.todo_bucket]
 }
 
