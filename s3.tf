@@ -36,7 +36,7 @@ locals {
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name = aws_s3_bucket.todo_bucket.bucket_regional_domain_name
-    origin_id   = local.s3_origin_id
+    origin_id   = local.s3_aorigin_id
   }
 
   enabled             = true
